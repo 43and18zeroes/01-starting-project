@@ -34,33 +34,19 @@ function App() {
             <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
             <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
-          {selectedTopic}
+          <div id="tab-content">
+            <h3></h3>
+            <p></p>
+            <pre>
+              <code>
+                
+              </code>
+            </pre>
+          </div>
         </section>
       </main>
     </div>
   );
 }
 
-// export default App;
-
-// IMPORTANT: You CAN'T import & use useState like this in this Udemy environment
-// import { useState } from 'react'
-// Instead, import & use it like this:
-// import React from 'react';
-// React.useState();
-import React from 'react';
-
-export default function App() {
-    const [ selectedTopic, setSelectedTopic ] = React.useState('$100');
-    
-    function applyDiscount() {
-        setSelectedTopic('$75');
-    }
-    
-    return (
-        <div>
-            <p data-testid="price">{selectedTopic}</p>
-            <button onClick={() => applyDiscount()}>Apply Discount</button>
-        </div>
-    );
-}
+export default App;
