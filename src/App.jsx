@@ -6,11 +6,11 @@ import CoreConcept from './components/CoreConcept.jsx';
 import TabButton from './components/TabButton.jsx';
 
 function App() {
+  console.log(useState('Please click a button'));
   const [ selectedTopic, setSelectedTopic ] = useState('Please click a button');
 
   function handleSelect(selectedButton) {
-    // console.log(selectedButton);
-    tabContent = selectedButton;
+    setSelectedTopic(selectedButton);
   }
 
   return (
@@ -34,7 +34,7 @@ function App() {
             <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
             <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
-          {tabContent}
+          {selectedTopic}
         </section>
       </main>
     </div>
