@@ -1,11 +1,16 @@
+import { useState } from 'react'; 
+
 import { CORE_CONCEPTS } from './data.js'; // named import
 import Header from './components/Header/Header.jsx'; // default import
 import CoreConcept from './components/CoreConcept.jsx';
 import TabButton from './components/TabButton.jsx';
 
 function App() {
+  const [ selectedTopic, setSelectedTopic ] = useState('Please click a button');
+
   function handleSelect(selectedButton) {
-    console.log(selectedButton);
+    // console.log(selectedButton);
+    tabContent = selectedButton;
   }
 
   return (
@@ -24,43 +29,14 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton onSelect={() => handleSelect('components')}>
-              Components
-            </TabButton>
+            <TabButton onSelect={() => handleSelect('components')}>Components</TabButton>
             <TabButton onSelect={() => handleSelect('jsx')}>JSX</TabButton>
             <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
             <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
+          {tabContent}
         </section>
       </main>
-    </div>
-  );
-}
-
-// export default App;
-
-export const user = {
-  name: '',
-};
-
-function App() {
-  // Your goal: This function should be called WITH A VALUE for name when the <button> is clicked
-  function handleCreateUser(name) {
-    user.name = name;
-  }
-
-  return (
-    <div id="app">
-      <h1>User Login</h1>
-      <p>
-        <label>Name</label>
-        {/* You don't need to do anything with this input! You'll learn how to handle user input later */}
-        <input type="text" />
-      </p>
-
-      <p id="actions">
-        <button onClick={() => handleCreateUser('Hansi')}>Create User</button>
-      </p>
     </div>
   );
 }
