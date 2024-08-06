@@ -1,3 +1,10 @@
 export default function TabButton({ children }) {
-    return <li><button>{children}</button></li>
+  // inner function (only callable from inside the parent function)
+  function handleClick() {}
+
+  return (
+    <li>
+      <button onClick={handleClick}>{children}</button>
+    </li>
+  );
 }
