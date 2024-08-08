@@ -34,10 +34,9 @@ function App() {
         <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
-            <CoreConcept {...CORE_CONCEPTS[0]} />
-            <CoreConcept {...CORE_CONCEPTS[1]} />
-            <CoreConcept {...CORE_CONCEPTS[2]} />
-            <CoreConcept {...CORE_CONCEPTS[3]} />
+            {CORE_CONCEPTS.map((conceptItem) => (
+              <CoreConcept {...conceptItem} />
+            ))}
           </ul>
         </section>
         <section id="examples">
@@ -76,26 +75,3 @@ function App() {
 }
 
 export default App;
-
-
-import React from 'react';
-
-// don't change the Component name "App"
-export default function App() {
-    const [isStyled, setIsStyled] = React.useState();
-
-    function toggleStyle() {
-        if (isStyled) {
-            setIsStyled(false);
-        } else {
-            setIsStyled(true);
-        }
-    }
-  
-    return (
-        <div>
-            <p className={isStyled ? 'active' : ''}>Style me!</p>
-            <button onClick={toggleStyle}>Toggle style</button>
-        </div>
-    );
-}
