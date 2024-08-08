@@ -76,3 +76,26 @@ function App() {
 }
 
 export default App;
+
+
+import React from 'react';
+
+// don't change the Component name "App"
+export default function App() {
+    const [isStyled, setIsStyled] = React.useState();
+
+    function toggleStyle() {
+        if (isStyled) {
+            setIsStyled(false);
+        } else {
+            setIsStyled(true);
+        }
+    }
+  
+    return (
+        <div>
+            <p className={isStyled ? 'active' : ''}>Style me!</p>
+            <button onClick={toggleStyle}>Toggle style</button>
+        </div>
+    );
+}
